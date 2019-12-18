@@ -1,75 +1,201 @@
-<!doctype html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
-	<link rel="stylesheet" href="./css/styles.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
 
-    <title> Collective Sports </title>
-</head>
+    <!-- Basic Page Needs
+         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>ScanObjectNN</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/skeleton.css">
+    <link rel="stylesheet" href="./css/footable.standalone.min.css">
+
+    <!-- Favicon
+         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Google icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                               m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-86869673-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- Hover effect: https://codepen.io/nxworld/pen/ZYNOBZ -->
+    <style>
+      img {
+          display: block;
+      }
+
+      .column-50 {
+          float: left;
+          width: 50%;
+      }
+      .row-50:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+
+      .floating-teaser {
+          float: left;
+          width: 30%;
+          text-align: center;
+          padding: 15px;
+      }
+      .venue strong {
+          color: #99324b;
+      }
+
+      .benchmark {
+          width: 100%;
+          max-width: 960px;
+          overflow: scroll;
+          overflow-y: hidden;
+      }
+
+    </style>
+  </head>
   <body>
-  	<div class="container">
-      <center>
-        <font color="red"> <h1> CollectiveSports: A Multi-task dataset for collective activity recognition </h1> </font> </br> </br>
 
-        <a href="index.html" target="_blank"> Cemil Zalluhoglu</a> &nbsp;&nbsp;
- <a href="https://web.cs.hacettepe.edu.tr/~nazli" target="_blank"> Nazli Ikizler-Cinbis</a> 
+    <!-- Primary Page Layout
+         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container">
+      <h4 style="text-align:center">CollectiveSports: A Multi-task dataset for collective activity recognition</h4>
+      <p align="center", style="margin-bottom:12px;">
+        <a class="simple" href="https://cemilzalluhoglu.github.io/">Cemil Zalluhoglu</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="simple" href="https://web.cs.hacettepe.edu.tr/~nazli/">Nazli Ikizler-Cinbis</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       </p>
 
-      </center>
-    </br>
-      <p align="center" style="font-family:Bitstream Vera Sans Mono" > Abstract</p>
+      <p align="center" style="margin-bottom:20px;">
+        Hacettepe University
+        <span style="display:inline-block; width: 32px"></span>
+        
+      </p>
 
-<p style="font-family:arial;">
-   Collective activity recognition is an important subtask of human action recognition, where the existing datasets are mostly limited. In this paper, we look into this issue and introduce the ''Collective Sports (C-Sports)'' dataset, which is a novel benchmark dataset for multi-task recognition of both collective activity and sports categories. Various state-of-the-art techniques are evaluated on this dataset, together with a multi-task variant, which demonstrates increased performance. From the experimental results, we can say that while the sports action category recognition is relatively an easy task, there is still room for improvement for collective activity recognition, especially for the distant view situations. We believe that C-Sports dataset will stir further interest in this research direction.
-    </p>
-      <p align="center" style="font-family:Bitstream Vera Sans Mono" > Dataset Examples</p>
+      <div class="venue">
+        <p align="center"> Image and Vision Computing, 2019 <strong>(Under Review)</strong> </p>
+      </div>
+      
+      <figure>
+        <img src="images/sport.jpg" style="width:100%"></img>
+ <figcaption>Fig. 1. Example frames from the eleven sports categories of C-Sports dataset. From top-left to bottom-right, sports categories are <i>American football, basketball, dodgeball, football, handball, hurling, ice hockey, lacrosse, rugby, volleyball, waterpolo</i>. </figcaption>
+        <br>
+      </figure>
+        <div id="teaser" class="container" style="width:100%; margin:0; padding:0">
+        <h5>Abstract</h5>
+        <p align="justify">
+           Collective activity recognition is an important subtask of human action recognition, where the existing datasets are mostly limited. In this paper, we look into this issue and introduce the ''Collective Sports (C-Sports)'' dataset, which is a novel benchmark dataset for multi-task recognition of both collective activity and sports categories. Various state-of-the-art techniques are evaluated on this dataset, together with a multi-task variant, which demonstrates increased performance. From the experimental results, we can say that while the sports action category recognition is relatively an easy task, there is still room for improvement for collective activity recognition, especially for the distant view situations. We believe that C-Sports dataset will stir further interest in this research direction.
+          <br>
+          <br>
+        </p>
+      </div>
 
-   <p style="font-family:arial;">In order to evaluate the , we collected a new video dataset called Collective Sports (C-Sports) that includes eleven sports categories and five colletive activitiy classes. 
-In C-Sports dataset, there are 11 sports categories and five collective activity categories. Sports categories are <i>American football, basketball, dodgeball, football, handball, hurling, ice hockey, lacrosse, rugby, volleyball and water polo</i>, whereas five collective activities are <i>gathering, dismissal, passing, attack and wandering </i>.  <i>Gathering</i> can be defined as people approaching each other for a specific purpose. <i>Dismissal</i> is the separation of people to different directions after gathering. <i>Pass</i> is the act of passing items, such as balls, hockey rubbers, etc., between players, whereas <i>attack</i> is the movement of the team players towards a specific goal. <i>Wandering</i> activity, on the other hand, can be defined as the free movements of team players. </p>
-   
-<p style="font-family:arial;">Sample video frames for sports classes are given in Fig. 1, and for collective activity classes in Fig. 2, Each video in the dataset has two labels, one indicating the sports category and the other indicating the class of the ongoing collective activity.</p>
+      <!-- -->
+      <div class="section">
+        <h5>Dataset Examples</h5>
+
+        <p>
+       In order to evaluate the , we collected a new video dataset called Collective Sports (C-Sports) that includes eleven sports categories and five colletive activitiy classes. 
+In C-Sports dataset, there are 11 sports categories and five collective activity categories. Sports categories are <i>American football, basketball, dodgeball, football, handball, hurling, ice hockey, lacrosse, rugby, volleyball and water polo</i>, whereas five collective activities are <i>gathering, dismissal, passing, attack and wandering </i>.  <i>Gathering</i> can be defined as people approaching each other for a specific purpose. <i>Dismissal</i> is the separation of people to different directions after gathering. <i>Pass</i> is the act of passing items, such as balls, hockey rubbers, etc., between players, whereas <i>attack</i> is the movement of the team players towards a specific goal. <i>Wandering</i> activity, on the other hand, can be defined as the free movements of team players.
+        </p>
+
+<p>Sample video frames for sports classes are given in Fig. 1, and for collective activity classes in Fig. 2, Each video in the dataset has two labels, one indicating the sports category and the other indicating the class of the ongoing collective activity.</p>
 
 
- <figure>
-  <img src="./images/sport.jpg" alt="sport" style="width:100%">
-  <figcaption>Fig. 1. Example frames from the eleven sports categories of C-Sports dataset. From top-left to bottom-right, sports categories are <i>American football, basketball, dodgeball, football, handball, hurling, ice hockey, lacrosse, rugby, volleyball, waterpolo</i>. </figcaption>
-</figure> 
-
+      </div>
+      <br>
+      <br>
 <figure>
-  <img src="./images/activities.jpg" alt="activities" style="width:100%">
+  <img src="images/activities.jpg" alt="activities" style="width:100%">
   <figcaption>Fig. 2. Sample frame sequences of the collective activities of C-Sports dataset. From top to bottom, collective activities are <i>gathering, dismissal, passing, attack and wandering</i>.</figcaption>
 </figure> 
 
 
-  
+    <div class="section">
 
 
-    <br/>
-    <b> Study </b> </br>
-    <ul>
-      <li> Paper : <a href="#" target="_blank"> PDF</a> </li>
-      <li> Dataset :  <a href="https://forms.gle/Lc9BSsnXmZ3ePFWp8" target="_blank"> Download</a> </li>
-</ul>
-    Please consider citing if you make use of this work and/or the dataset: </br>
-    <pre style="display: block; background-color:#F8F9F9;" tab-width:4>
-     <!-- add bibtex -->
+        <h5>Materials</h5>
+        <div class="container" style="width:95%">
+          <!-- Icon row -->
+          <div class="row">
+            <div class="two columns">
+            <!--    <a href=#"><img style="border: 1px solid #ddd; border-radius: 4px; padding: 2px; width: 108px;" src="images/screenshot_main.png"></a> -->
+            </div>
+          </div>
+          <!-- Link row -->
+          <div class="row">
+            <div class="two columns">
+              <a href="#">Paper</a>
+            </div>
+            
+          </div>
 
-    </pre>
-    <!-- add bibtex -->
-    
-    
+          <div class="row">
+            <div class="two columns">
+              <br>
+              <a href="https://forms.gle/Lc9BSsnXmZ3ePFWp8">Code</a>
+            </div>
+          </div>
 
+          <br>
+          
+        </div> 
+      </div>
 
-    </br>
-  
-      
-  </br>
-    
-    <hr>
-    
-    </br>
-    <a href="index.html"> Back to Home</a> 
-    </div>
+		<!-- -->
+	<div class="section">
+          <h5>Citation</h5> 
+  <pre style="margin:0"><code>*</code></pre>    			
+		</div>
+		
+        <!-- -->
+        <br> 
+        
+  <div class="section">
+      <h5>Acknowledgements</h5>            
+      <p>
+			We would like to sincerely thank ... for helping in the part annotations.
+			</p>
+			
+			<p>
+			This work was supported in part by the Scientific and Technological Research Council of Turkey (TUBITAK) Research Program (1001), Project No: 116E102.
+      </p>
+  </div>
+  </div>
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/footable.min.js"></script>
+
+    <script type="text/javascript">
+      jQuery(function($){
+          $('.table').footable();
+      });
+    </script>
+
+    <!-- End Document
+         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   </body>
-
 </html>
+
